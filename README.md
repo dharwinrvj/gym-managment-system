@@ -1,9 +1,9 @@
 # gym-managment-system
 # GYM Managment System using Java Swing and MySql
-# Video Demo: 
-# For running my Application in your Local Machine,
-## Download(.jar): https://drive.google.com/drive/folders/1AELIypbAxekhWWyBK9HTeYaNC85wvIR4?usp=sharing
-## MySql(installation and configuration): https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04
+## Video Demo: 
+## For running my Application in your Local Machine,
+### Download(.jar): https://drive.google.com/drive/folders/1AELIypbAxekhWWyBK9HTeYaNC85wvIR4?usp=sharing
+### MySql(installation and configuration): https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04
 
 Enter in your MySql community-server as root and Create a user as gms with password admin@123
 ```bash
