@@ -42,11 +42,10 @@ public class Payment extends javax.swing.JFrame {
     }
     public void data()
     {
-       /* SimpleDateFormat dFormat=new SimpleDateFormat("MM-YYYY");
+       SimpleDateFormat dFormat=new SimpleDateFormat("MM-YYYY");
         Date date=new Date();
-        String month=dFormat.format(date);  */
-         LocalDateTime current = LocalDateTime.now();
-        jLabel5.setText(current.toString());
+        String month=dFormat.format(date); 
+        jLabel5.setText(month);
     }
    
     public Payment() {
