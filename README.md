@@ -1,5 +1,5 @@
 # gym-managment-system
-# GYM Managment System using Java Swing and MySql
+## GYM Managment System using Java Swing and MySql
 ## Video Demo: https://youtu.be/hnn98S4nY0A
 ## For running my Application in your Local Machine,
 ### Download(.jar): https://drive.google.com/drive/folders/1AELIypbAxekhWWyBK9HTeYaNC85wvIR4?usp=sharing
