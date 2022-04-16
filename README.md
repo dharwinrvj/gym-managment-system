@@ -2,7 +2,7 @@
 ## GYM Managment System using Java Swing and SQLite
 ## Video Demo: https://youtu.be/hnn98S4nY0A
 ## For running my Application in your Local Machine,
-## [Download(.exe)](https://github.com/DharwinRVJ/gym-managment-system/raw/master/DWinFitnessCenter.zip)
+## [Download(.exe)](https://github.com/DharwinRVJ/gym-managment-system/raw/master/gym_managment_system.zip)
 <img src="demo_images/0.png">
 
 <img src="demo_images/1.png">
