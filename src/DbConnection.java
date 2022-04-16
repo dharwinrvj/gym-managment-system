@@ -14,7 +14,7 @@ public class DbConnection {
     public static Connection getCon() {
         try {
             Class.forName("org.sqlite.JDBC");
-            Connection con = DriverManager.getConnection("jdbc:sqlite:Gym.db");
+            Connection con = DriverManager.getConnection("jdbc:sqlite:gym.db");
             return con;
         } catch (Exception e) {
             return null;

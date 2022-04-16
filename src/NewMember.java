@@ -6,6 +6,7 @@
 
 import java.sql.*;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author dharwin
@@ -17,26 +18,24 @@ public class NewMember extends javax.swing.JFrame {
      */
     public NewMember() {
         initComponents();
-        try{
-        int id=1;
-        String str1=String.valueOf(id);
-        jLabel3.setText(str1);
-        Connection con=DbConnection.getCon();
-        Statement st=con.createStatement();
-        ResultSet rs=st.executeQuery("select max(id) from member");
-        while(rs.next()){
-        id=rs.getInt(1);
-      id=id+1;
-      String str=String.valueOf(id);
-      jLabel3.setText(str);
-        
-        }
-        
-        
-        }
-        catch(Exception e){
-               
-           JOptionPane.showMessageDialog(null,e);
+        try {
+            int id = 1;
+            String str1 = String.valueOf(id);
+            jLabel3.setText(str1);
+            Connection con = DbConnection.getCon();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select max(id) from member");
+            while (rs.next()) {
+                id = rs.getInt(1);
+                id = id + 1;
+                String str = String.valueOf(id);
+                jLabel3.setText(str);
+
+            }
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, e);
         }
     }
 
@@ -388,41 +387,40 @@ public class NewMember extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        String id=jLabel3.getText();
-        String name=jTextField2.getText();
-        String mobilenumber=jTextField1.getText();
-        String email=jTextField3.getText();
-       String gender=(String)jComboBox1.getSelectedItem();
-       String fathername=jTextField4.getText();
-       String mothername=jTextField5.getText();
-       String gymtime=(String)jComboBox2.getSelectedItem();
-       String aadharnumber=jTextField6.getText();
-       String age=jTextField7.getText();
-       String amount=jTextField8.getText();
-       try{
-       Connection con=DbConnection.getCon();
-       PreparedStatement ps=con.prepareStatement("insert into member values (?,?,?,?,?,?,?,?,?,?,?)");
-        ps.setString(1,id);
-        ps.setString(2,name);
-        ps.setString(3,mobilenumber);
-        ps.setString(4,email);
-        ps.setString(5,gender);
-        ps.setString(6,fathername);
-        ps.setString(7,mothername);
-        ps.setString(8,gymtime);
-        ps.setString(9,aadharnumber);
-        ps.setString(10,age);
-        ps.setString(11,amount);
-        ps.executeUpdate();
-        JOptionPane.showMessageDialog(null,"Successfully Saved");
-        setVisible(false);
-        new NewMember().setVisible(true);
-       } 
-       catch(Exception e){
-        JOptionPane.showMessageDialog(null,e);
-       }
-       
-         
+        String id = jLabel3.getText();
+        String name = jTextField2.getText();
+        String mobilenumber = jTextField1.getText();
+        String email = jTextField3.getText();
+        String gender = (String) jComboBox1.getSelectedItem();
+        String fathername = jTextField4.getText();
+        String mothername = jTextField5.getText();
+        String gymtime = (String) jComboBox2.getSelectedItem();
+        String aadharnumber = jTextField6.getText();
+        String age = jTextField7.getText();
+        String amount = jTextField8.getText();
+        try {
+            Connection con = DbConnection.getCon();
+            PreparedStatement ps = con.prepareStatement("insert into member values (?,?,?,?,?,?,?,?,?,?,?)");
+            ps.setString(1, id);
+            ps.setString(2, name);
+            ps.setString(3, mobilenumber);
+            ps.setString(4, email);
+            ps.setString(5, gender);
+            ps.setString(6, fathername);
+            ps.setString(7, mothername);
+            ps.setString(8, gymtime);
+            ps.setString(9, aadharnumber);
+            ps.setString(10, age);
+            ps.setString(11, amount);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Successfully Saved");
+            setVisible(false);
+            new NewMember().setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed

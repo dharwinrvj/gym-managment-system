@@ -15,39 +15,35 @@ import java.time.LocalDateTime;
  * @author NANDHA KUMAR K.K
  */
 public class Payment extends javax.swing.JFrame {
-     /**
+
+    /**
      * Creates new form Payment
      */
 
-    public void tableDetails()
-    {
-        DefaultTableModel dtm =(DefaultTableModel)jTable1.getModel();
+    public void tableDetails() {
+        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
         dtm.setRowCount(0);
-        String id=jTextField1.getText();
-        try
-        {
-          Connection con=DbConnection.getCon();
-          Statement st=con.createStatement();
-          ResultSet rs=st.executeQuery("Select * from payment where id='"+id+"'");
-          while(rs.next())
-          {
-              dtm.addRow(new Object[] {rs.getString(2),rs.getString(3)});
-          }
-                }
-        catch(Exception e)
-        {
-          JOptionPane.showMessageDialog(null,e);  
+        String id = jTextField1.getText();
+        try {
+            Connection con = DbConnection.getCon();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("Select * from payment where id='" + id + "'");
+            while (rs.next()) {
+                dtm.addRow(new Object[]{rs.getString(2), rs.getString(3)});
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
-         
+
     }
-    public void data()
-    {
-       SimpleDateFormat dFormat=new SimpleDateFormat("MM-YYYY");
-        Date date=new Date();
-        String month=dFormat.format(date); 
+
+    public void data() {
+        SimpleDateFormat dFormat = new SimpleDateFormat("MM-YYYY");
+        Date date = new Date();
+        String month = dFormat.format(date);
         jLabel5.setText(month);
     }
-   
+
     public Payment() {
         initComponents();
         data();
@@ -313,38 +309,34 @@ public class Payment extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         tableDetails();
-        int checkid=0;
-        String id=jTextField1.getText();
-        String month=jLabel5.getText();
-        try
-        {
-          Connection con=DbConnection.getCon();
-          Statement st=con.createStatement();
-          ResultSet rs=st.executeQuery("Select * from member where id='"+id+"'");
-          while(rs.next())
-          {
-              checkid=1;
-              jTextField1.setEditable(false);
-              jTextField2.setText(rs.getString(2));
-              jTextField3.setText(rs.getString(3));
-              jTextField4.setText(rs.getString(4));
-              jTextField5.setText(rs.getString(11));
-          }
-          if(checkid==0)
-              JOptionPane.showMessageDialog(null,"Member ID does not Exist");
+        int checkid = 0;
+        String id = jTextField1.getText();
+        String month = jLabel5.getText();
+        try {
+            Connection con = DbConnection.getCon();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("Select * from member where id='" + id + "'");
+            while (rs.next()) {
+                checkid = 1;
+                jTextField1.setEditable(false);
+                jTextField2.setText(rs.getString(2));
+                jTextField3.setText(rs.getString(3));
+                jTextField4.setText(rs.getString(4));
+                jTextField5.setText(rs.getString(11));
+            }
+            if (checkid == 0) {
+                JOptionPane.showMessageDialog(null, "Member ID does not Exist");
+            }
 
-          ResultSet rs1=st.executeQuery("Select * from payment inner join member where payment.month='"+month+"' and payment.id='"+id+"'and member.id='"+id+"'");
-          while(rs1.next())
-          {
-              jButton3.setVisible(false);
-              JOptionPane.showMessageDialog(null,"Payment is already done for this month");
+            ResultSet rs1 = st.executeQuery("Select * from payment inner join member where payment.month='" + month + "' and payment.id='" + id + "'and member.id='" + id + "'");
+            while (rs1.next()) {
+                jButton3.setVisible(false);
+                JOptionPane.showMessageDialog(null, "Payment is already done for this month");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
-}
-        catch(Exception e)
-        {
-            JOptionPane.showMessageDialog(null,e);
-        }
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -360,27 +352,23 @@ public class Payment extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        String id=jTextField1.getText();
-        String month=jLabel5.getText();
-        String amount=jTextField5.getText();
-        try
-        {
-            Connection con=DbConnection.getCon();
-            PreparedStatement ps=con.prepareStatement("insert into payment values(?,?,?)");
-            ps.setString(1,id);
-            ps.setString(2,month);
-            ps.setString(3,amount);
+        String id = jTextField1.getText();
+        String month = jLabel5.getText();
+        String amount = jTextField5.getText();
+        try {
+            Connection con = DbConnection.getCon();
+            PreparedStatement ps = con.prepareStatement("insert into payment values(?,?,?)");
+            ps.setString(1, id);
+            ps.setString(2, month);
+            ps.setString(3, amount);
             ps.executeUpdate();
             tableDetails();
-            JOptionPane.showMessageDialog(null,"Successfully Updated");
+            JOptionPane.showMessageDialog(null, "Successfully Updated");
             setVisible(false);
             new Payment().setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
-        catch(Exception e)
-        { 
-            JOptionPane.showMessageDialog(null,e);
-}
-                
 
 
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -416,9 +404,9 @@ public class Payment extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Payment().setVisible(true);
-}
+            }
         });
-}
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

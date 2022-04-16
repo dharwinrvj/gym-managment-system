@@ -1,12 +1,12 @@
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author LENOVO
@@ -136,9 +136,8 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        int a=JOptionPane.showConfirmDialog(null,"Do you really want to Exit Application","Select",JOptionPane.YES_NO_OPTION);
-        if(a==0)
-        {
+        int a = JOptionPane.showConfirmDialog(null, "Do you really want to Exit Application", "Select", JOptionPane.YES_NO_OPTION);
+        if (a == 0) {
             System.exit(0);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -148,56 +147,50 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-     if(jTextField1.getText().equals("gms") && jPasswordField1.getText().equals("admin"))
-             
-             {
-             setVisible(false);
-             new Home().setVisible(true);
-             }
-     else
-         jLabel2.setVisible(true);
-     
+        if (jTextField1.getText().equals("gms") && jPasswordField1.getText().equals("admin")) {
+            setVisible(false);
+            new Home().setVisible(true);
+        } else {
+            jLabel2.setVisible(true);
+        }
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
         // TODO add your handling code here:
         jLabel2.setVisible(false);
-        if(jTextField1.getText().equals("Enter Username"))
-        {
-           jTextField1.setText("");
-           jTextField1.setForeground(new Color(0,118,221));
-           
+        if (jTextField1.getText().equals("Enter Username")) {
+            jTextField1.setText("");
+            jTextField1.setForeground(new Color(0, 118, 221));
+
         }
     }//GEN-LAST:event_jTextField1FocusGained
 
     private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
         // TODO add your handling code here:
         jLabel2.setVisible(false);
-        if(jTextField1.getText().equals(""))
-        {
-        jTextField1.setText("Enter Username");
-        jTextField1.setForeground(new Color(0,118,221));
+        if (jTextField1.getText().equals("")) {
+            jTextField1.setText("Enter Username");
+            jTextField1.setForeground(new Color(0, 118, 221));
         }
     }//GEN-LAST:event_jTextField1FocusLost
 
     private void jPasswordField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordField1FocusGained
         // TODO add your handling code here
-          jLabel2.setVisible(false);
-        if(jPasswordField1.getText().equals("Enter Password"))
-        {
-           jPasswordField1.setText("");
-           jPasswordField1.setForeground(new Color(0,118,221));
-           
+        jLabel2.setVisible(false);
+        if (jPasswordField1.getText().equals("Enter Password")) {
+            jPasswordField1.setText("");
+            jPasswordField1.setForeground(new Color(0, 118, 221));
+
         }
     }//GEN-LAST:event_jPasswordField1FocusGained
 
     private void jPasswordField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordField1FocusLost
         // TODO add your handling code here:
-          jLabel2.setVisible(false);
-        if(jPasswordField1.getText().equals(""))
-        {
-        jPasswordField1.setText("Enter Password");
-        jPasswordField1.setForeground(new Color(0,118,221));
+        jLabel2.setVisible(false);
+        if (jPasswordField1.getText().equals("")) {
+            jPasswordField1.setText("Enter Password");
+            jPasswordField1.setForeground(new Color(0, 118, 221));
         }
     }//GEN-LAST:event_jPasswordField1FocusLost
 
@@ -206,14 +199,12 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-     // TODO add your handling code here:
-     if(jCheckBox1.isSelected()){
-     jPasswordField1.setEchoChar((char)0);
-     }
-     else
-     {
-     jPasswordField1.setEchoChar('*');
-     }
+        // TODO add your handling code here:
+        if (jCheckBox1.isSelected()) {
+            jPasswordField1.setEchoChar((char) 0);
+        } else {
+            jPasswordField1.setEchoChar('*');
+        }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     /**

@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-
 import javax.swing.JOptionPane;
 
 /**
@@ -138,9 +137,8 @@ public class Home extends javax.swing.JFrame {
 
     private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
         // TODO add your handling code here:
-        int a=JOptionPane.showConfirmDialog(null,"Do you really want to Logout","select",JOptionPane.YES_NO_OPTION);
-        if(a==0)
-        {
+        int a = JOptionPane.showConfirmDialog(null, "Do you really want to Logout", "select", JOptionPane.YES_NO_OPTION);
+        if (a == 0) {
             setVisible(false);
             new Login().setVisible(true);
         }
@@ -148,9 +146,8 @@ public class Home extends javax.swing.JFrame {
 
     private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
         // TODO add your handling code here:
-        int a=JOptionPane.showConfirmDialog(null,"Do you really want to Exit","select",JOptionPane.YES_NO_OPTION);
-        if(a==0)
-        {
+        int a = JOptionPane.showConfirmDialog(null, "Do you really want to Exit", "select", JOptionPane.YES_NO_OPTION);
+        if (a == 0) {
             System.exit(0);
         }
     }//GEN-LAST:event_jMenu6MouseClicked
@@ -174,7 +171,7 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
         new Payment().setVisible(true);
     }//GEN-LAST:event_jMenu4MouseClicked
-     /**
+    /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -201,7 +198,7 @@ public class Home extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
- 
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Home().setVisible(true);

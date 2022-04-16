@@ -1,7 +1,6 @@
+
 import java.sql.*;
 import javax.swing.JOptionPane;
-
- 
 
 /**
  *
@@ -359,16 +358,14 @@ public class UpdateAndDeleteMembers extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        int checkid=0;
-        String id=jTextField1.getText();
-        try
-        {
-            Connection con=DbConnection.getCon();
-            Statement st=con.createStatement();
-            ResultSet rs=st.executeQuery("select * from member where id='"+id+"'");
-            while(rs.next())
-            {
-                checkid=1;
+        int checkid = 0;
+        String id = jTextField1.getText();
+        try {
+            Connection con = DbConnection.getCon();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select * from member where id='" + id + "'");
+            while (rs.next()) {
+                checkid = 1;
                 jTextField1.setEditable(false);
                 jTextField2.setText(rs.getString(2));
                 jTextField3.setText(rs.getString(3));
@@ -383,77 +380,67 @@ public class UpdateAndDeleteMembers extends javax.swing.JFrame {
                 jTextField10.setText(rs.getString(10));
                 jTextField11.setText(rs.getString(11));
             }
-            if(checkid==0)
-                JOptionPane.showMessageDialog(null,"Member ID does not Exist" );
-        }
-        catch(Exception e)
-            {
-                JOptionPane.showMessageDialog(null, e );
+            if (checkid == 0) {
+                JOptionPane.showMessageDialog(null, "Member ID does not Exist");
             }
-        
-           
-              
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        String id=jTextField1.getText();
-        String name=jTextField2.getText();
-        String mobilenumber=jTextField3.getText();
-        String email=jTextField4.getText();
-        String fathername=jTextField6.getText();
-        String mothername=jTextField7.getText();
-        String aadharnumber=jTextField9.getText();
-        String age=jTextField10.getText();
-        String amount=jTextField11.getText();
-        try
-        {
-          Connection con=DbConnection.getCon();
-          PreparedStatement ps=con.prepareStatement("update member set name=?,mobilenumber=?,email=?,fathername=?,mothername=?,aadharnumber=?,age=?,amount=? where id=?");
-          ps.setString(1,name );
-          ps.setString(2,mobilenumber );
-          ps.setString(3,email );
-          ps.setString(4,fathername );
-          ps.setString(5,mothername );
-          ps.setString(6,aadharnumber );
-          ps.setString(7,age );
-          ps.setString(8,amount);
-          ps.setString(9,id );
-          ps.executeUpdate();
-          JOptionPane.showMessageDialog(null,"Successfully Updated");
-          setVisible(false);
-          new UpdateAndDeleteMembers().setVisible(true);
-          
-        }
-        catch(Exception e)
-        {
+        String id = jTextField1.getText();
+        String name = jTextField2.getText();
+        String mobilenumber = jTextField3.getText();
+        String email = jTextField4.getText();
+        String fathername = jTextField6.getText();
+        String mothername = jTextField7.getText();
+        String aadharnumber = jTextField9.getText();
+        String age = jTextField10.getText();
+        String amount = jTextField11.getText();
+        try {
+            Connection con = DbConnection.getCon();
+            PreparedStatement ps = con.prepareStatement("update member set name=?,mobilenumber=?,email=?,fathername=?,mothername=?,aadharnumber=?,age=?,amount=? where id=?");
+            ps.setString(1, name);
+            ps.setString(2, mobilenumber);
+            ps.setString(3, email);
+            ps.setString(4, fathername);
+            ps.setString(5, mothername);
+            ps.setString(6, aadharnumber);
+            ps.setString(7, age);
+            ps.setString(8, amount);
+            ps.setString(9, id);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Successfully Updated");
+            setVisible(false);
+            new UpdateAndDeleteMembers().setVisible(true);
+
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        int a=JOptionPane.showConfirmDialog(null,"Do you really want to Delete","Select",JOptionPane.YES_NO_OPTION);
-        if(a==0)
-        {
-            String id=jTextField1.getText();
-            try
-            {
-                Connection con=DbConnection.getCon();
-                Statement st=con.createStatement();
-                st.executeUpdate("delete from member where id='"+id+"'");
-                JOptionPane.showMessageDialog(null,"Successfully Deleted");
+        int a = JOptionPane.showConfirmDialog(null, "Do you really want to Delete", "Select", JOptionPane.YES_NO_OPTION);
+        if (a == 0) {
+            String id = jTextField1.getText();
+            try {
+                Connection con = DbConnection.getCon();
+                Statement st = con.createStatement();
+                st.executeUpdate("delete from member where id='" + id + "'");
+                JOptionPane.showMessageDialog(null, "Successfully Deleted");
                 setVisible(false);
                 new UpdateAndDeleteMembers().setVisible(true);
-                
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
             }
-            catch(Exception e)
-            {
-                JOptionPane.showMessageDialog(null,e);
-            }
-                
-            
+
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
