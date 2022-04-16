@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import project.ConnectionProvider;
+
 import java.sql.*;
 import javax.swing.JOptionPane;
 /**
@@ -21,7 +21,7 @@ public class NewMember extends javax.swing.JFrame {
         int id=1;
         String str1=String.valueOf(id);
         jLabel3.setText(str1);
-        Connection con=ConnectionProvider.getCon();
+        Connection con=DbConnection.getCon();
         Statement st=con.createStatement();
         ResultSet rs=st.executeQuery("select max(id) from member");
         while(rs.next()){
@@ -400,7 +400,7 @@ public class NewMember extends javax.swing.JFrame {
        String age=jTextField7.getText();
        String amount=jTextField8.getText();
        try{
-       Connection con=ConnectionProvider.getCon();
+       Connection con=DbConnection.getCon();
        PreparedStatement ps=con.prepareStatement("insert into member values (?,?,?,?,?,?,?,?,?,?,?)");
         ps.setString(1,id);
         ps.setString(2,name);

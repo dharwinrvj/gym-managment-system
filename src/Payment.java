@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 import java.text.SimpleDateFormat;
 import java.sql.*;
 import java.time.LocalDateTime;
-import project.ConnectionProvider;
+
 /**
  *
  * @author NANDHA KUMAR K.K
@@ -26,7 +26,7 @@ public class Payment extends javax.swing.JFrame {
         String id=jTextField1.getText();
         try
         {
-          Connection con=ConnectionProvider.getCon();
+          Connection con=DbConnection.getCon();
           Statement st=con.createStatement();
           ResultSet rs=st.executeQuery("Select * from payment where id='"+id+"'");
           while(rs.next())
@@ -318,7 +318,7 @@ public class Payment extends javax.swing.JFrame {
         String month=jLabel5.getText();
         try
         {
-          Connection con=ConnectionProvider.getCon();
+          Connection con=DbConnection.getCon();
           Statement st=con.createStatement();
           ResultSet rs=st.executeQuery("Select * from member where id='"+id+"'");
           while(rs.next())
@@ -365,7 +365,7 @@ public class Payment extends javax.swing.JFrame {
         String amount=jTextField5.getText();
         try
         {
-            Connection con=ConnectionProvider.getCon();
+            Connection con=DbConnection.getCon();
             PreparedStatement ps=con.prepareStatement("insert into payment values(?,?,?)");
             ps.setString(1,id);
             ps.setString(2,month);

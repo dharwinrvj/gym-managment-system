@@ -1,6 +1,6 @@
 import java.sql.*;
 import javax.swing.JOptionPane;
-import project.ConnectionProvider;
+
  
 
 /**
@@ -363,7 +363,7 @@ public class UpdateAndDeleteMembers extends javax.swing.JFrame {
         String id=jTextField1.getText();
         try
         {
-            Connection con=ConnectionProvider.getCon();
+            Connection con=DbConnection.getCon();
             Statement st=con.createStatement();
             ResultSet rs=st.executeQuery("select * from member where id='"+id+"'");
             while(rs.next())
@@ -408,7 +408,7 @@ public class UpdateAndDeleteMembers extends javax.swing.JFrame {
         String amount=jTextField11.getText();
         try
         {
-          Connection con=ConnectionProvider.getCon();
+          Connection con=DbConnection.getCon();
           PreparedStatement ps=con.prepareStatement("update member set name=?,mobilenumber=?,email=?,fathername=?,mothername=?,aadharnumber=?,age=?,amount=? where id=?");
           ps.setString(1,name );
           ps.setString(2,mobilenumber );
@@ -440,7 +440,7 @@ public class UpdateAndDeleteMembers extends javax.swing.JFrame {
             String id=jTextField1.getText();
             try
             {
-                Connection con=ConnectionProvider.getCon();
+                Connection con=DbConnection.getCon();
                 Statement st=con.createStatement();
                 st.executeUpdate("delete from member where id='"+id+"'");
                 JOptionPane.showMessageDialog(null,"Successfully Deleted");

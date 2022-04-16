@@ -1,7 +1,7 @@
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import project.ConnectionProvider;/*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -21,7 +21,7 @@ public class ListOfMembers extends javax.swing.JFrame {
         DefaultTableModel model=(DefaultTableModel)jTable1.getModel();
         try
         {
-            Connection con=ConnectionProvider.getCon();
+            Connection con=DbConnection.getCon();
             Statement st=con.createStatement();
             ResultSet rs=st.executeQuery("select * from member");
             while(rs.next())
